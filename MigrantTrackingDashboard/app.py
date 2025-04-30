@@ -9,14 +9,15 @@ import data_processing as dp
 import visualization as viz
 import utils
 import os
-from dotenv import load_dotenv
-from supabase import create_client
 import json
 from datetime import datetime
 import time
 
-# Load environment variables from .env file
-load_dotenv()
+# Set environment variables if they don't exist
+if not os.getenv('SUPABASE_URL'):
+    os.environ['SUPABASE_URL'] = "https://edgdygqnvtxkifrwfvwr.supabase.co"
+if not os.getenv('SUPABASE_KEY'):
+    os.environ['SUPABASE_KEY'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkZ2R5Z3FudnR4a2lmcndmdndyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU5Mzg0MDgsImV4cCI6MjA2MTUxNDQwOH0.JmcAT6SzCg1lzRIVPDwtvi2hl7pUGlOpDqRhQqEuv18"
 
 # Set page configuration with modern theme
 st.set_page_config(
@@ -551,7 +552,37 @@ def main():
             This dashboard visualizes data on migrant deaths and disappearances worldwide, aiming to raise awareness 
             about the humanitarian crisis faced by migrants around the world.
         </p>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+        <div style="display: flex; justify-content: spacimport streamlit as st
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+import numpy as np
+import folium
+from streamlit_folium import folium_static
+import data_processing as dp
+import visualization as viz
+import utils
+import os
+import json
+from datetime import datetime
+import time
+
+# Set environment variables if they don't exist
+if not os.getenv('SUPABASE_URL'):
+    os.environ['SUPABASE_URL'] = "https://edgdygqnvtxkifrwfvwr.supabase.co"
+if not os.getenv('SUPABASE_KEY'):
+    os.environ['SUPABASE_KEY'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkZ2R5Z3FudnR4a2lmcndmdndyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU5Mzg0MDgsImV4cCI6MjA2MTUxNDQwOH0.JmcAT6SzCg1lzRIVPDwtvi2hl7pUGlOpDqRhQqEuv18"
+
+# Set page configuration with modern theme
+st.set_page_config(
+    page_title="Missing Migrants Analysis (2014-2024)",
+    page_icon="🌍",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Rest of your code...
+// ... existing code ...e-between; align-items: center; margin-top: 20px;">
             <span style="color: #64748b; font-size: 12px;">
                 Last updated: April 29, 2025 | College Project
             </span>
